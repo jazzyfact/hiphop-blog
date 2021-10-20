@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {// api/post
 router.post("/", async (req, res, next) => {
     try{
         console.log(req, "req");
-        const { title, contents, fileUrl, creator} = req.body;
+        const { title, contents, fileUrl, creator } = req.body;
         const newPost = await Post.create({
             title,
             contents,
