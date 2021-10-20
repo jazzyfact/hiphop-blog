@@ -7,9 +7,8 @@ import cors from "cors";
 import morgan from 'morgan';
 
 
-import postsRoutes from './routes/api/post';
-
-
+import postRoutes from './routes/api/post';
+import userRoutes from './routes/api/user';
 
 
 const app = express();
@@ -35,7 +34,8 @@ mongoose.connect(MONGO_URI,{
 
 //라우터
 app.get("/");
-app.get('/api/post', postsRoutes);
+app.get('/api/post', postRoutes);
+app.get('/api/user', userRoutes);
 
 
 export default app;
