@@ -1,20 +1,41 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import config from './config';
+import hpp from "hpp";
+import helmet from "helmet";
+import cors from "cors";
+import morgan from 'morgan';
+
+
+import postsRoutes from './routes/api/post';
+
+
 
 
 const app = express();
 const {MONGO_URI} = config;
 
 
-mongoose.connect(MONGO_URI,{
-        useNeWUrlParser : true,
-        useUnifiedTopology: true,
-})
+app.get(hpp());
+app.use(helmet());//서버 보안 해주는 라이브러리
 
-.then(() => console.log("몽고 디비 연결 성공!"))
+app.use(cors({origin : true, credentials : true}));
+app.use(morgan("dev"));
+
+app.use(express.json());
+
+
+
+mongoose.connect(MONGO_URI,{
+    // useNeWUrlParser : true,
+    // useUnifiedTopology: true,
+}).then(() => console.log("몽고 디비 연결 성공!"))
 .catch((e) => console.log(e));
 
-app.get('/')
+
+//라우터
+app.get("/");
+app.get('/api/post', postsRoutes);
+
 
 export default app;
