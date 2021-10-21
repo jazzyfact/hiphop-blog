@@ -1,5 +1,9 @@
-import app from './app'
+import app from './app';
+import config from './config/index';
 
-app.listen('7000', () => {
-    console.log('hello my blog');
+
+const { PORT } = config
+
+app.listen("7000", () => {
+    console.log(`Server started on Post ${PORT}`);
 });

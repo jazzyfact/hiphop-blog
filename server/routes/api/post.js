@@ -1,4 +1,5 @@
 import express from 'express';
+import auth from '../../middleware/auth';
 
 import Post from '../../models/post';
 
@@ -16,7 +17,7 @@ router.get("/", async (req, res) => {// api/post
 });
 
 //게시글 작성
-router.post("/", async (req, res, next) => {
+router.post("/", auth, async (req, res, next) => {
     try{
         console.log(req, "req");
         const { title, contents, fileUrl, creator } = req.body;

@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 
 import jwt from "jsonwebtoken";
 import config from "../../config/index";
+import auth from "../../middleware/auth";
 const { JWT_SECRET } = config;
 
 
