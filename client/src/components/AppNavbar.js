@@ -12,16 +12,14 @@ const AppNavbar = () => {
                 </Link>
                 <NavbarToggler/>
                 <Collapse isOpen={true} navbar>
-                    <Nav className="ml-auto d-felx justify-content-around" navbar>
+                    <Nav className="ml-auto d-flex justify-content-around" navbar>
                         {true ? (
                         <h1 className="text-white"> authLink </h1>
                         ) : (
                         <h1 className="text-white"> guestLink </h1>
                         )}
                     </Nav>
-                    
                 </Collapse>
-              
             </Container>
         </Navbar>
     </>
