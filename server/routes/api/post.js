@@ -2,7 +2,7 @@ import express from 'express';
 import auth from '../../middleware/auth';
 
 import Post from '../../models/post';
-
+require("@babel/polyfill");
 
 
 

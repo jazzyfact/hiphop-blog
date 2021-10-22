@@ -1,40 +1,43 @@
 {
-  "name": "my-blog-site",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./server/server.js --exec babel-node"
+    "dev": "nodemon ./server/server.js --exec babel-node --ignore './client'",
+    "dev-watch": "babel-watch server/server.js"
+  },
+  "author": "heymi",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "babel-watch": "^7.6.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.18"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/polyfill": "7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jazzyfact/my-blog-site.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jazzyfact/my-blog-site/issues"
   },
-  "homepage": "https://github.com/jazzyfact/my-blog-site#readme",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "helmet": "^4.6.0",
-    "hpp": "^0.2.3",
-    "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.1",
-    "mongoose": "^6.0.11"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.15.8",
-    "@babel/node": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "babel-loader": "^8.2.2",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.14"
-  }
+  "homepage": "https://github.com/jazzyfact/my-blog-site#readme"
 }

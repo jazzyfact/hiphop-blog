@@ -1,6 +1,6 @@
 import app from './app';
 import config from './config/index';
-
+require("@babel/polyfill");
 
 const { PORT } = config
 

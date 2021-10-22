@@ -5,7 +5,7 @@ import hpp from "hpp";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from 'morgan';
-
+require("@babel/polyfill");
 
 import postRoutes from './routes/api/post';
 import userRoutes from './routes/api/user';
@@ -26,8 +26,8 @@ app.use(express.json());
 
 
 mongoose.connect(MONGO_URI,{
-    // useNeWUrlParser : true,
-    // useUnifiedTopology: true,
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
 }).then(() => console.log("몽고 디비 연결 성공!"))
 .catch((e) => console.log(e));
 
