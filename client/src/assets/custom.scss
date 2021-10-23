@@ -1,16 +1,16 @@
 //푸터
-#main-footer{
+#main-footer {
     background: #343a40;
     color: #fff;
-}
-
-//헤더
+  }
+  
+  //헤더
 #page-header {
     height: 200px;
-    background: url('../assets/img/music.jpg');
-    background-position: 54% 50%;
+    background: url("../assets/img/music.jpg");
+    background-position: 54% 95%;
+    background-attachment: fixed;
     color: #fff;
-    border-bottom: 1px;
+    border-bottom: 1px #eee solid;
     padding-top: 60px;
-
-}
+  }
