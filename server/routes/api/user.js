@@ -32,7 +32,7 @@ router.get("/", async(req, res) => {
 
 //회원가입
 router.post("/", (req, res) => {
-    console.lpg(req)
+    // console.lpg(req)
     const { name, email, password } = req.body
 
     
