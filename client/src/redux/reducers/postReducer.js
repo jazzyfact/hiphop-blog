@@ -1,7 +1,10 @@
 import { 
     POSTS_LOADING_FAILURE, 
     POSTS_LOADING_REQUEST, 
-    POSTS_LOADING_SUCCESS, 
+    POSTS_LOADING_SUCCESS,
+    POSTS_WRITE_REQUEST,
+    POSTS_WRITE_SUCCESS,
+    POSTS_WRITE_FAILURE,
     } from '../types';
 
 const initialState = {
@@ -34,11 +37,28 @@ export default function (state = initialState, action){
                 posts : [...state.posts, ...action.payload],
                 loading : false,
             }
-      case POSTS_LOADING_FAILURE :
+        case POSTS_LOADING_FAILURE :
             return {
                 ...state,
                 loading : false,
             };
+        case POSTS_WRITE_REQUEST:
+            return {
+            ...state,
+            posts: [],
+            loading: true,
+        };
+        case POSTS_WRITE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+            };
+        case POSTS_WRITE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false,
+            }; 
         default:
             return state;
     }

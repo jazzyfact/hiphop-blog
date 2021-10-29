@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import moment from "moment";
-
+import dotenv from "dotenv";
+dotenv.config();
 
 const PostSchema = new mongoose.Schema({
     title: {
@@ -18,7 +19,8 @@ const PostSchema = new mongoose.Schema({
     },
     fileUrl: {
       type: String,
-      default: "https://source.unsplash.com/random/301x201",//임시
+      // default: "https://source.unsplash.com/random/301x201",//임시
+      default: process.env.REACT_APP_BASIC_IMAGE_URL
     },
     date: {
       type: String,
