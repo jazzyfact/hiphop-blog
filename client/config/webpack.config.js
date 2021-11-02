@@ -1,5 +1,3 @@
-
-
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -31,8 +29,8 @@ const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
 //ckeditor 셋팅
-const { styles } = require('@ckeditor/ckeditor5-dev-utils');
-const CKEditorWebpackPlugin = require('@ckeditor/ckeditor5-dev-webpack-plugin');
+const { styles } = require("@ckeditor/ckeditor5-dev-utils");
+const CKEditorWebpackPlugin = require("@ckeditor/ckeditor5-dev-webpack-plugin");
 
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -488,9 +486,9 @@ module.exports = function (webpackEnv) {
                               themePath: require.resolve( '@ckeditor/ckeditor5-theme-lark' )
                           },
                           minify: true
-                      } )
-                  }
-              ]
+                      }),
+                  },
+              ],
           },
 
             // "postcss" loader applies autoprefixer to our CSS.
@@ -524,9 +522,7 @@ module.exports = function (webpackEnv) {
             {
               test: cssModuleRegex,
               //CKEdito5 셋팅
-              exclude: [
-                /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
-              ],
+              exclude: [/ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/],
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction
@@ -592,6 +588,7 @@ module.exports = function (webpackEnv) {
                 /\.(js|mjs|jsx|ts|tsx)$/,
                 /\.html$/,
                 /\.json$/,
+                /\.scss$/,
                 /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
                 /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/
               ],
