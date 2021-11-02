@@ -54,21 +54,6 @@ const PostDetail = (req) => {
 
     const EditButton = (
         <>
-         {/* <div className="d-flex justify-content-end pb-3">
-        <div className="mr-2">
-          <Link
-            to={`/post/${req.match.params.id}/edit`}
-            className="btn btn-success btn-block"
-          >
-            EDIT
-          </Link>
-        </div>
-        <div>
-          <Button className="btn-danger btn-block" onClick={onDeleteClick}>
-            DELETE
-          </Button>
-        </div>
-      </div> */}
         <Row className="d-flex justify-content-center pb-3">
                 <Col className="col-md3 mr-md-3">
                     <Link to="/" className="btn btn-primary btn-block">
