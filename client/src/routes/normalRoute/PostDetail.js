@@ -44,11 +44,11 @@ const PostDetail = (req) => {
     const onDeleteClick = () => {
         dispatch({
             //작성자만 게시글 삭제
-            type : POST_DELETE_REQUEST,
-            payload : {
-                id : req.match.params.id,
-                toekn : localStorage.getItem("token")
-            }
+            type: POST_DELETE_REQUEST,
+            payload: {
+              id: req.match.params.id,
+              token: localStorage.getItem("token"),
+            },
         });
     };
 
