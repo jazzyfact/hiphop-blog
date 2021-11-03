@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { 
     POST_DETAIL_LOADING_REQUEST, 
     POST_DELETE_REQUEST, 
-    USER_LOADING_REQUEST 
+    USER_LOADING_REQUEST, 
 } from '../../redux/types';
 import { Col, Row, Button, Container  } from 'reactstrap';
 // import {Col, Row, Button} from 'react-bootstrap'; 
@@ -39,7 +39,7 @@ const PostDetail = (req) => {
             type : USER_LOADING_REQUEST,
             payload : localStorage.getItem("token")
         });
-    }, []);
+    }, [dispatch, req.match.params.id]);
 
     const onDeleteClick = () => {
         dispatch({
@@ -51,6 +51,8 @@ const PostDetail = (req) => {
             },
         });
     };
+
+
 
     const EditButton = (
         <>
@@ -76,6 +78,9 @@ const PostDetail = (req) => {
          </> 
            
     ) 
+
+
+  
 
     const HomeButton = (
         <>

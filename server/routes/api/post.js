@@ -132,6 +132,38 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+
+//게시글 수정
+router.get("/:id/edit", auth, async(req, res, next) => {//GET api/post/:id/post
+  try{
+    const post = await Post.findById(req.params.id).populate("creator", "name");
+    res.json(post);
+  }catch(e){
+    console.error(e);
+  }
+});
+
+router.post("/:id/edit", auth, async(req, res, next) => {
+  console.log(req, "api/post/:id/edit");
+  const {body : {title, contents, fileUrl, id}} = req
+
+  try{
+    const modified_post = await Post.findByIdAndUpdate(
+      id, {
+        title, contens, fileUrl, date : moment().format("YYYY-MM-DD hh:mm:ss")
+      },
+      { new : true}
+    )
+    console.log(modified_post, "edit modified");
+    res.redirect(`/api/posts/${modified_post.id}`);
+  }catch(e){
+    console.error(e);
+    next(e);
+  }
+});
+
+
+
 //게시글 삭제
 router.delete('/:id', auth, async (req, res) => {//Delete api/post/:id
   await Post.deleteMany({ _id: req.params.id });
@@ -204,4 +236,8 @@ router.post("/:id/comments", async (req, res, next) => {
     next(e);
   }
 });
+
+
+
+
 export default router;

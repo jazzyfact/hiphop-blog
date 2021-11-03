@@ -69,6 +69,14 @@ function* watchUpLoadComments() {
   yield takeEvery(COMMENT_UPLOADING_REQUEST, uploadComments);
 }
 
+
+
+
+
+
 export default function* commentSaga() {
-  yield all([fork(watchLoadComments), fork(watchUpLoadComments)]);
+  yield all([
+    fork(watchLoadComments), 
+    fork(watchUpLoadComments),
+]);
 }
