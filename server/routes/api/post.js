@@ -155,7 +155,7 @@ router.post("/:id/edit", auth, async(req, res, next) => {
       { new : true}
     )
     console.log(modified_post, "edit modified");
-    res.redirect(`/api/posts/${modified_post.id}`);
+    res.redirect(`/api/post/${modified_post.id}`);
   }catch(e){
     console.error(e);
     next(e);
