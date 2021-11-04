@@ -36,7 +36,7 @@ const PostCardOne = ({ posts }) => {
                       </CardTitle>
                       <Row>
                         <Button color="primary" className="p-2 btn-block">
-                          More <Badge color="light">{comments.length}</Badge>
+                          더보기 <Badge color="light">{comments.length}</Badge>
                         </Button>
                       </Row>
                     </CardBody>

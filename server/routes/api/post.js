@@ -56,10 +56,11 @@ router.post("/image", uploadS3.array("upload", 5), async (req, res, next) => {
 
 
 router.get("/", async (req, res) => {// api/post
-    const postFindResult = await Post.find()
+    const postFindResult = await Post.find();
     const categoryFindResult = await Category.find();
     const result = { postFindResult, categoryFindResult };
-  
+
+    console.log(postFindResult, "게시글");
     res.json(result);
 
 });
@@ -259,5 +260,7 @@ router.get("/category/:categoryName", async (req, res, next) => {
     next(e);
   }
 });
+
+
 
 export default router;

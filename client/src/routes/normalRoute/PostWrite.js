@@ -90,27 +90,29 @@ const PostWrite = () => {
       {isAuthenticated ? (
         <Form onSubmit={onSubmit}>
           <FormGroup className="mb-3">
-            <Label for="title">Title</Label>
+            <Label for="title">제목</Label>
             <Input
               type="text"
               name="title"
               id="title"
               className="form-control"
+              placeholder="제목을 입력해주세요"
               onChange={onChange}
             />
           </FormGroup>
           <FormGroup className="mb-3">
-            <Label for="category">Category</Label>
+            <Label for="category">카테고리</Label>
             <Input
               type="text"
               name="category"
               id="category"
               className="form-control"
+              placeholder="카테고리를 입력해주세요"
               onChange={onChange}
             />
           </FormGroup>
           <FormGroup className="mb-3">
-            <Label for="content">Content</Label>
+            <Label for="content">내용</Label>
             <CKEditor
               editor={ClassicEditor}
               config={editorConfiguration}
@@ -122,7 +124,7 @@ const PostWrite = () => {
               block
               className="mt-3 col-md-2 offset-md-10 mb-3"
             >
-              제출하기
+              등록
             </Button>
           </FormGroup>
         </Form>
