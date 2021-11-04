@@ -57,8 +57,10 @@ router.post("/image", uploadS3.array("upload", 5), async (req, res, next) => {
 
 router.get("/", async (req, res) => {// api/post
     const postFindResult = await Post.find()
-    console.log(postFindResult, "All Post Get");
-    res.json(postFindResult)
+    const categoryFindResult = await Category.find();
+    const result = { postFindResult, categoryFindResult };
+  
+    res.json(result);
 
 });
 
@@ -238,6 +240,24 @@ router.post("/:id/comments", async (req, res, next) => {
 });
 
 
-
+//카테고리 찾기
+router.get("/category/:categoryName", async (req, res, next) => {
+  try {
+    const result = await Category.findOne(
+      {
+        categoryName: {
+          $regex: req.params.categoryName,
+          $options: "i",
+        },
+      },
+      "posts"
+    ).populate({ path: "posts" });
+    console.log(result, "Category Find result");
+    res.send(result);
+  } catch (e) {
+    console.log(e);
+    next(e);
+  }
+});
 
 export default router;

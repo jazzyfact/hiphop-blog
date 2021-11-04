@@ -22,7 +22,7 @@ const MyRouter = () => (
                     <Route path="/" exact component={PostCardList}/>
                     <Route path="/post" exact component={PostWrite}/>
                     <Route path="/post/:id" exact component={PostDetail}/>
-                    <EditProtectedRoute path ="/post/:id/edit" exact component={PostEdit} />
+                    <EditProtectedRoute path="/post/:id/edit" exact component={PostEdit} />
                     <Route path="/post/Category/:categoryName" exact component={CategoryResult}/>
                     <Route path="/search/:searchTerm" exact component={Search}/>
                     <Redirect from="*" to="/"/>
