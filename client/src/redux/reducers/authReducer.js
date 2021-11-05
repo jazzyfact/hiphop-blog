@@ -130,8 +130,8 @@ import {
           ...state,
           isLoading: false,
           successMsg : "",
-          errorMsg :  action.payload.data.fail_msg,
-          previousMatchMsg :  action.payload.data.match_msg,
+          errorMsg :  action.payload.fail_msg,
+          previousMatchMsg :  action.payload.match_msg,
         };
          //에러
       case CLEAR_ERROR_REQUEST:
