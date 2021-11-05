@@ -29,3 +29,31 @@ export const EditProtectedRoute = ({component : Component, ...rest}) => {
         />
     );
 };
+
+
+//비밀번호
+export const ProfileProtectedRoute = ({ component: Component, ...rest }) => {
+    const { userName } = useSelector((state) => state.auth);
+    console.log(userName);
+    return (
+      <Route
+        {...rest}
+        render={(props) => {
+          if (props.match.params.userName === userName) {
+            return <Component {...props} />;
+          } else {
+            return (
+              <Redirect
+                to={{
+                  pathname: "/",
+                  state: {
+                    from: props.location,
+                  },
+                }}
+              />
+            );
+          }
+        }}
+      />
+    );
+  };

@@ -15,6 +15,10 @@ import {
     REGISTER_REQUEST,
     REGISTER_SUCCESS,
     REGISTER_FAILURE,
+    //패스워드 변경
+    PASSWORD_EDIT_UPLOADING_REQUEST,
+    PASSWORD_EDIT_UPLOADING_SUCCESS,
+    PASSWORD_EDIT_UPLOADING_FAILURE,
     //에러
     CLEAR_ERROR_REQUEST,
     CLEAR_ERROR_SUCCESS,
@@ -31,6 +35,7 @@ import {
     userRole: "",
     errorMsg: "",
     successMsg: "",
+    previousMatchMsg : "",
   };
   
   const authReducer = (state = initialState, action) => {
@@ -107,23 +112,44 @@ import {
           isLoading: false,
           userRole: "",
         };
-        //에러
+      case PASSWORD_EDIT_UPLOADING_REQUEST:
+        return {
+          ...state,
+          isLoading : true,
+        };
+      case PASSWORD_EDIT_UPLOADING_SUCCESS:
+        return {
+          ...state,
+          isLoading: false,
+          successMsg : action.payload.data.success_msg,
+          errorMsg : "",
+          previousMatchMsg : "",
+        };
+      case PASSWORD_EDIT_UPLOADING_FAILURE:
+        return {
+          ...state,
+          isLoading: false,
+          successMsg : "",
+          errorMsg :  action.payload.data.fail_msg,
+          previousMatchMsg :  action.payload.data.match_msg,
+        };
+         //에러
       case CLEAR_ERROR_REQUEST:
         return {
           ...state,
-          errorMsg: null,
         };
       case CLEAR_ERROR_SUCCESS:
         return {
           ...state,
-          errorMsg: null,
+          errorMsg: "",
+          previousMatchMsg : "",
         };
       case CLEAR_ERROR_FAILURE:
         return {
           ...state,
-          errorMsg: null,
+          errorMsg: "Clear Error Fail",
+          previousMatchMsg: "Clear Error Fail",
         };
-  
       default:
         return state;
     }
