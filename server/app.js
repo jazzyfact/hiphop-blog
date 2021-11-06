@@ -5,7 +5,7 @@ import hpp from "hpp";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from 'morgan';
-require("@babel/polyfill");
+// require("@babel/polyfill");
 
 import postRoutes from './routes/api/post';
 import userRoutes from './routes/api/user';

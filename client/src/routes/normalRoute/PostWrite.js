@@ -116,7 +116,7 @@ const PostWrite = () => {
             <CKEditor
               editor={ClassicEditor}
               config={editorConfiguration}
-              onInit={Myinit}
+              onReady={Myinit}
               onBlur={getDataFromCKEditor}
             />
             <Button
