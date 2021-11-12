@@ -12,7 +12,7 @@ const SearchInput = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
-    console.log(form);
+
   };
 
   const onSubmit = async (e) => {
@@ -24,17 +24,16 @@ const SearchInput = () => {
       payload: searchBy,
     });
 
-    console.log(searchBy, "Submit Body");
     resetValue.current.value = "";
   };
   const resetValue = useRef(null);
 
   return (
-    <Fragment>
+    <>
       <Form onSubmit={onSubmit} className="col mt-2">
-        <Input name="searchBy" onChange={onChange} innerRef={resetValue} placeholder="검색어를 입력해주세요"/>
+        <Input id="search" name="searchBy" onChange={onChange} innerRef={resetValue} placeholder="검색어를 입력해주세요"/>
       </Form>
-    </Fragment>
+    </>
   );
 };
 

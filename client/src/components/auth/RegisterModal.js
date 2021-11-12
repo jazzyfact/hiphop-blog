@@ -51,7 +51,7 @@ const RegisterModal = () => {
         e.preventDefault();//새로고침 방지
         const { name, email, password } = form;
         const newUser = { name, email, password };
-        console.log(newUser);
+      
         dispatch({
             type : REGISTER_REQUEST,
             payload : newUser,

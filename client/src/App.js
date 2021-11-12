@@ -4,7 +4,8 @@ import { ConnectedRouter } from "connected-react-router";
 import store, { history } from "./store";
 import MyRouter from "./routes/Router";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 import "./assets/custom.scss";
 
 const App = () => {

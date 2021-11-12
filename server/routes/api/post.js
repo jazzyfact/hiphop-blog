@@ -46,7 +46,6 @@ const uploadS3 = multer({
 //이미지 업로드
 router.post("/image", uploadS3.array("upload", 5), async (req, res, next) => {
     try {
-      console.log(req.files.map((v) => v.location));
       res.json({ uploaded: true, url: req.files.map((v) => v.location) });
     } catch (e) {
       console.error(e);
@@ -66,7 +65,7 @@ router.get("/skip/:skip", async (req, res) => {//GET /api/post
     const categoryFindResult = await Category.find();
     const result = { postFindResult, categoryFindResult, postCount };
 
-    console.log(postFindResult, "게시글");
+  
     res.json(result);
 
   }catch(e){
@@ -75,11 +74,9 @@ router.get("/skip/:skip", async (req, res) => {//GET /api/post
   }
 });
 
-
-//게시글 작성 
-router.post("/", auth, uploadS3.none(), async (req, res, next) => { //POST api/post
+//게시글 작성
+router.post("/", auth, uploadS3.none(), async (req, res, next) => {
   try {
-    console.log(req, "req");
     const { title, contents, fileUrl, creator, category } = req.body;
     const newPost = await Post.create({
       title,
@@ -93,7 +90,7 @@ router.post("/", auth, uploadS3.none(), async (req, res, next) => { //POST api/p
       categoryName: category,
     });
 
-    console.log(findResult, "Find Result!!!!");
+ 
 
     if (isNullOrUndefined(findResult)) {
       const newCategory = await Category.create({
@@ -129,6 +126,42 @@ router.post("/", auth, uploadS3.none(), async (req, res, next) => { //POST api/p
   }
 });
 
+//게시글 수정
+//POST api/post
+router.get("/:id/edit", auth, async (req, res, next) => {
+    try {
+      const post = await Post.findById(req.params.id).populate("creator", "name");
+      res.json(post);
+    } catch (e) {
+      console.error(e);
+    }
+  });
+  
+  router.post("/:id/edit", auth, async (req, res, next) => {
+ 
+    const {
+      body: { title, contents, fileUrl, id },
+    } = req;
+  
+    try {
+      const modified_post = await Post.findByIdAndUpdate(
+        id,
+        {
+          title,
+          contents,
+          fileUrl,
+          date: moment().format("YYYY-MM-DD hh:mm:ss"),
+        },
+        { new: true }
+      );
+  
+      res.redirect(`/api/post/${modified_post.id}`);
+    } catch (e) {
+      console.log(e);
+      next(e);
+    }
+  });
+
 //게시글 업로드
 router.get("/:id", async (req, res, next) => {
   try {
@@ -137,7 +170,7 @@ router.get("/:id", async (req, res, next) => {
       .populate({ path: "category", select: "categoryName" });
     post.views += 1;
     post.save();
-    console.log(post);
+ 
     res.json(post);
   } catch (e) {
     console.error(e);
@@ -157,7 +190,7 @@ router.get("/:id/edit", auth, async(req, res, next) => {//GET api/post/:id/post
 });
 
 router.post("/:id/edit", auth, async(req, res, next) => {
-  console.log(req, "api/post/:id/edit");
+
   const {body : {title, contents, fileUrl, id}} = req
 
   try{
@@ -167,7 +200,7 @@ router.post("/:id/edit", auth, async(req, res, next) => {
       },
       { new : true}
     )
-    console.log(modified_post, "edit modified");
+
     res.redirect(`/api/post/${modified_post.id}`);
   }catch(e){
     console.error(e);
@@ -210,7 +243,7 @@ router.get('/:id/comments', async(req, res) => {
       path : "comments",
     });
     const result = comment.comments;
-    console.log(result, "comment load");
+  
     res.json(result);
   }catch(e){
     console.error(e);
@@ -219,7 +252,7 @@ router.get('/:id/comments', async(req, res) => {
 
 //댓글 추가
 router.post("/:id/comments", async (req, res, next) => {
-  console.log(req, "comments");
+
   const newComment = await Comment.create({
     contents: req.body.contents,
     creator: req.body.userId,
@@ -227,7 +260,7 @@ router.post("/:id/comments", async (req, res, next) => {
     post: req.body.id,
     date: moment().format("YYYY-MM-DD hh:mm:ss"),
   });
-  console.log(newComment, "newComment");
+
 
   try {
     await Post.findByIdAndUpdate(req.body.id, {
@@ -263,7 +296,7 @@ router.get("/category/:categoryName", async (req, res, next) => {
       },
       "posts"
     ).populate({ path: "posts" });
-    console.log(result, "Category Find result");
+   
     res.send(result);
   } catch (e) {
     console.log(e);

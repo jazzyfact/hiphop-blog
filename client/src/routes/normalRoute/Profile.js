@@ -66,7 +66,7 @@ const Profile = () => {
           <Col sm="12" md={{ size: 6, offset: 3 }}>
             <Card>
               <CardHeader>
-                <strong>Edit Password</strong>
+                <strong>비밀번호 변경</strong>
               </CardHeader>
               <CardBody>
                 <Form onSubmit={onSubmit}>
@@ -107,11 +107,11 @@ const Profile = () => {
                     {errorMsg ? <Alert color="danger">{errorMsg}</Alert> : ""}
                   </FormGroup>
                   <Button
-                    color="success"
+                    color="dark"
                     block
                     className="mt-4 mb-4 col-md-3 offset-9"
                   >
-                    제출하기
+                    수정
                   </Button>
                   {successMsg ? <Alert color="success">{successMsg}</Alert> : ""}
                 </Form>

@@ -27,9 +27,14 @@ app.use(express.json());
 
 
 mongoose.connect(MONGO_URI,{
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
-}).then(() => console.log("몽고 디비 연결 성공!"))
+    // useNewUrlParser: true, 
+    // useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+})
+.then(() => console.log("몽고 디비 연결 성공!"))
 .catch((e) => console.log(e));
 
 

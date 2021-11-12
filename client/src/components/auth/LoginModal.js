@@ -23,6 +23,7 @@ const LoginModal = () => {
   });
   const dispatch = useDispatch();
   const { errorMsg } = useSelector((state) => state.auth);
+  
   useEffect(() => {
     try {
       setLocalMsg(errorMsg);
@@ -49,7 +50,6 @@ const LoginModal = () => {
     e.preventDefault();
     const { email, password } = form;
     const user = { email, password };
-    console.log(user);
     dispatch({
       type: LOGIN_REQUEST,
       payload: user,

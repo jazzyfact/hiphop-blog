@@ -38,7 +38,7 @@ const Comments = ({ id, userName, userId }) => {
       ...form,
       [e.target.name]: e.target.value,
     });
-    console.log(form.contents);
+  
   };
 
   useEffect(() => {
@@ -63,11 +63,11 @@ const Comments = ({ id, userName, userId }) => {
               placeholder="Comment"
             />
             <Button
-              color="primary"
+              color="dark"
               block
               className="mt-2 offset-md-10 col-md-2 "
             >
-              Submit
+              등록
             </Button>
           </Row>
         </FormGroup>

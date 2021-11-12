@@ -39,7 +39,6 @@ const loadPostAPI = (payload) =>{
 function* loadPosts(action)  {
     try{
       const result = yield call(loadPostAPI, action.payload);
-        console.log(result, "loadPosts");
         yield put({
             type : POSTS_LOADING_SUCCESS,
             payload : result.data,
@@ -98,14 +97,13 @@ function* watchUploadPosts(){
 
 //게시글 상세보기
 const loadPostDetailAPI = (payload) =>{
-    console.log(payload);
     return axios.get(`/api/post/${payload}`);
 };
 
 function* loadPostDetail(action)  {
     try{
         const result = yield call(loadPostDetailAPI, action.payload);
-        console.log(result, "post_detail_saga_data");
+     
         yield put({
             type : POST_DETAIL_LOADING_SUCCESS,
             payload : result.data,

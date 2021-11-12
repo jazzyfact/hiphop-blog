@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Badge } from "reactstrap";
 
 const Categroy = ({ posts }) => {
-  console.log(posts);
+
   return (
     <>
       {Array.isArray(posts)
@@ -14,7 +14,7 @@ const Categroy = ({ posts }) => {
                 className="text-dark text-decoration-none"
               >
                 <span className="ml-1">
-                  <Button color="info">
+                  <Button className="tag" >
                     {categoryName} <Badge color="light">{posts.length}</Badge>
                   </Button>
                 </span>

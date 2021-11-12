@@ -13,14 +13,14 @@ import { push } from "connected-react-router";
 
 //댓글 불러오기
 const loadCommentsAPI = (payload) => {
-  console.log(payload, "loadCommentAPI ID");
+ 
   return axios.get(`/api/post/${payload}/comments`, payload);
 };
 
 function* loadComments(action) {
   try {
     const result = yield call(loadCommentsAPI, action.payload);
-    console.log(result);
+  
     yield put({
       type: COMMENT_LOADING_SUCCESS,
       payload: result.data,
@@ -42,15 +42,15 @@ function* watchLoadComments() {
 
 //댓글 추가
 const uploadCommentsAPI = (payload) => {
-  console.log(payload.id, "loadCommentAPI ID");
+
   return axios.post(`/api/post/${payload.id}/comments`, payload);
 };
 
 function* uploadComments(action) {
   try {
-    console.log(action);
+
     const result = yield call(uploadCommentsAPI, action.payload);
-    console.log(result, "UploadComment");
+  
     yield put({
       type: COMMENT_UPLOADING_SUCCESS,
       payload: result.data,

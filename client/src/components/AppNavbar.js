@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   Navbar,
   Container,
@@ -16,15 +16,11 @@ import LoginModal from "../components/auth/LoginModal";
 import RegisterModal from "../components/auth/RegisterModal";
 import SearchInput from "./search/searchInput";
 
-
-
 const AppNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated, user, userRole } = useSelector(
     (state) => state.auth
   );
-  console.log(userRole, "UserRole");
-
   const dispatch = useDispatch();
 
   const onLogout = useCallback(() => {
@@ -47,34 +43,38 @@ const AppNavbar = () => {
     });
   };
 
-  //
   const authLink = (
     <>
       <NavItem>
         {userRole === "esens" ? (
           <Form className="col mt-2">
-            <Link to="/post" className="btn btn-success block text-white px-3" onClick={addPostClick}>
-              게시글 작성
+            <Link
+              to="/post"
+              className="btn btn-dark  block text-white px-3"
+              onClick={addPostClick}
+              
+            >
+              글쓰기
             </Link>
           </Form>
-        )  : (
+        ) : (
           ""
         )}
       </NavItem>
-      <NavItem  className="d-flex justify-content-center">
-          <Form className="col mt-2">
-            {user && user.name ? (
-              <Link to={`/user/${user.name}/profile`}>
+      <NavItem className="d-flex justify-content-center">
+        <Form className="col mt-2">
+          {user && user.name ? (
+            <Link to={`/user/${user.name}/profile`}>
               <Button outline color="light" className="px-3" block>
-                <strong>{user ? `${user.name}님 환영합니다` : ""}</strong>
+                <strong>{user ? ` ${user.name}` : ""}</strong>
               </Button>
             </Link>
-            ) : (
-              <Button outline color="light" className="px-3" block>
-              <strong>"유저를 찾을 수 없습니다."</strong>
+          ) : (
+            <Button outline color="light" className="px-3" block>
+              <strong>No User</strong>
             </Button>
-            )}
-          </Form>
+          )}
+        </Form>
       </NavItem>
       <NavItem>
         <Form className="col">
@@ -91,27 +91,25 @@ const AppNavbar = () => {
   const guestLink = (
     <>
       <NavItem>
-      <RegisterModal />
+        <RegisterModal />
       </NavItem>
       <NavItem>
         <LoginModal />
       </NavItem>
     </>
-  )
-
+  );
 
   return (
     <>
-      <Navbar color="dark" dark expand="lg" className="sticky-top">
+      <Navbar id="navbar" dark expand="lg" className="sticky-top">
         <Container>
-        <Link to="/" className="text-white text-decoration-none">
-             Blog
+          <Link to="/" className="text-white text-decoration-none">
+           AlwaysHipHop
           </Link>
           <NavbarToggler onClick={handleToggle} />
           <Collapse isOpen={isOpen} navbar>
-          <SearchInput isOpen={isOpen} />
-          <Nav className="ml-auto d-felx justify-content-around" navbar>
-              {/* 로그인 인증 */}
+            <SearchInput isOpen={isOpen} />
+            <Nav className="ml-auto d-felx justify-content-around" navbar>
               {isAuthenticated ? authLink : guestLink}
             </Nav>
           </Collapse>

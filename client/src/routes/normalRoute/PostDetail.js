@@ -15,88 +15,76 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
     faPencilAlt,
     faCommentDots,
-    faMouse,
+    faEye,
 } from "@fortawesome/free-solid-svg-icons";
 import BalloonEditor from "@ckeditor/ckeditor5-editor-balloon/src/ballooneditor";
 import { editorConfiguration } from '../../components/editor/EditorConfig';
 import Comments from "../../components/comments/Comments";
 
+
+
 const PostDetail = (req) => {
-    const dispatch = useDispatch();
-    const { postDetail, creatorId, title, loading} = useSelector((state) => state.post);
-    const { userId, userName }  = useSelector((state) => state.auth);
-    const { comments } = useSelector((state) => state.comment);
-    console.log(req, "postDetail REQ");
+  const dispatch = useDispatch();
+  const { postDetail, creatorId, title, loading } = useSelector(
+    (state) => state.post
+  );
+  const { userId, userName } = useSelector((state) => state.auth);
+  const { comments } = useSelector((state) => state.comment);
 
 
-    useEffect(() => {
-        dispatch({
-            type : POST_DETAIL_LOADING_REQUEST,
-            payload : req.match.params.id,
-        });
-        //작성자만 삭제 버튼 보이게 
-        dispatch({
-            type : USER_LOADING_REQUEST,
-            payload : localStorage.getItem("token")
-        });
-    }, [dispatch, req.match.params.id]);
+  useEffect(() => {
+    dispatch({
+      type: POST_DETAIL_LOADING_REQUEST,
+      payload: req.match.params.id,
+    });
+    dispatch({
+      type: USER_LOADING_REQUEST,
+      payload: localStorage.getItem("token"),
+    });
+  }, [dispatch, req.match.params.id]);
 
-    const onDeleteClick = () => {
-        dispatch({
-            //작성자만 게시글 삭제
-            type: POST_DELETE_REQUEST,
-            payload: {
-              id: req.match.params.id,
-              token: localStorage.getItem("token"),
-            },
-        });
-    };
+  const onDeleteClick = () => {
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      dispatch({
+        type: POST_DELETE_REQUEST,
+        payload: {
+          id: req.match.params.id,
+          token: localStorage.getItem("token"),
+        },
+      });
+      alert("삭제되었습니다.");
+    } else {
 
-
-
-    const EditButton = (
-        <>
-        <Row className="d-flex justify-content-center pb-3">
-                <Col className="col-md3 mr-md-3">
-                    <Link to="/" className="btn btn-primary btn-block">
-                        홈
-                    </Link>
-                </Col>
-                <Col className="col-md3 mr-md-3">
-                    <Link to={`/post/${req.match.params.id}/edit`} className="btn btn-success btn-block">
-                        수정
-                    </Link>
-                  
-                </Col>
-                <Col className="col-md3">
-                   <Button className="btn-block btn-danger" onClick={onDeleteClick}>
-                       삭제
-                   </Button>
-                </Col>
-            </Row> 
-        {/* </> */} 
-         </> 
-           
-    ) 
+    }
+  };
 
 
-  
 
-    const HomeButton = (
-        <>
-            <Row className="d-flex justify-content-center pb-3">
-                <Col className="col-sm-12 com-md-3"> 
-                <Link to="/" className="btn btn-primary btn-block">
-                        홈
-                    </Link>
-                </Col>
-            </Row>
-        </>
-    );
+  const EditButton = (
+    <>
+      <div className="d-flex justify-content-end pb-3"> 
+          <div className="col-md3 ">
+          <Link
+            to={`/post/${req.match.params.id}/edit`}
+            className="btn btn-dark btn-block">
+            수정
+          </Link>
+        </div>
+        <div className="col-md3">
+          <Button id="delete" className="btn-dark btn-block"  onClick={onDeleteClick}>
+            삭제
+          </Button>
+        </div>
+      </div>
+    </>
+  );
 
-    const Body = (
-        <>
-      {userId === creatorId ? EditButton : HomeButton}
+
+
+
+  const Body = (
+    <>
+      {userId === creatorId ? EditButton : ""}
       <Row className="border-bottom border-top border-primary p-3 mb-3 d-flex justify-content-between">
         {(() => {
           if (postDetail && postDetail.creator) {
@@ -104,13 +92,14 @@ const PostDetail = (req) => {
               <>
                 <div className="font-weight-bold text-big">
                   <span className="mr-3">
-                    <Button color="info">
+                    <Button className="tag">
                       {postDetail.category.categoryName}
                     </Button>
+                    <br/><br/><br/>
                   </span>
-                  {postDetail.title}
+                  <div id="postTitle"> {postDetail.title}</div>
                 </div>
-                <div className="align-self-end">{postDetail.creator.name}</div>
+                <div id="creator">작성자 : {postDetail.creator.name}</div>
               </>
             );
           }
@@ -127,7 +116,7 @@ const PostDetail = (req) => {
             &nbsp;
             <span>{postDetail.comments.length}</span>
             &nbsp;&nbsp;
-            <FontAwesomeIcon icon={faMouse} />
+            <FontAwesomeIcon icon={faEye} />
             <span>{postDetail.views}</span>
           </div>
           <Row className="mb-3">
@@ -173,20 +162,20 @@ const PostDetail = (req) => {
               />
             </Container>
           </Row>
-          </>
+        </>
       ) : (
         <h1>hi</h1>
       )}
     </>
   );
 
-    console.log(comments, "Comments");
-    return (
-        <div>
-            <Helmet title={`Post | ${title}`} />
-            {loading === true ? GrowingSpinner : Body }
-        </div>
-    );
+
+  return (
+    <div>
+      <Helmet title={`Post | ${title}`} />
+      {loading === true ? GrowingSpinner : Body}
+    </div>
+  );
 };
 
 export default PostDetail;

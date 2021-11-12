@@ -30,7 +30,7 @@ import {
 
 // 로그인
 const loginUserAPI = (loginData) => {
-  console.log(loginData, "loginData");
+
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const loginUserAPI = (loginData) => {
 function* loginUser(action) {
   try {
     const result = yield call(loginUserAPI, action.payload);
-    console.log(result);
+    
     yield put({
       type: LOGIN_SUCCESS,
       payload: result.data,
@@ -79,7 +79,6 @@ function* watchLogoutUser() {
 
 //로그인 상태 유지
 const userLodingAPI = (token) => {
-  console.log(token);
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -93,9 +92,8 @@ const userLodingAPI = (token) => {
 
 function* userLoding(action) {
   try {
-    console.log(action, "userLoading");
+
     const result = yield call(userLodingAPI, action.payload);
-    console.log(result);
     yield put({
       type: USER_LOADING_SUCCESS,
       payload: result.data,
@@ -114,7 +112,7 @@ function* watchUserLoadingUser() {
 
 //회원가입
 const registerUserAPI = (req) => {
-  console.log(req, "req");
+
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -126,7 +124,7 @@ const registerUserAPI = (req) => {
 function* registerUser(action) {
   try {
     const result = yield call(registerUserAPI, action.payload);
-    console.log(result, "RegisterUser Data");
+ 
     yield put({
       type: REGISTER_SUCCESS,
       payload: result.data,
@@ -161,7 +159,7 @@ const EditPasswordAPI = (payload) => {
 
 function* EditPassword(action) {
   try {
-    console.log(action, "EditPassword");
+ 
     const result = yield call(EditPasswordAPI, action.payload);
     yield put({
       type: PASSWORD_EDIT_UPLOADING_SUCCESS,

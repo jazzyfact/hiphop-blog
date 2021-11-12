@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {
   Card,
   CardImg,
@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMouse } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const PostCardOne = ({ posts }) => {
   return (
@@ -29,14 +29,14 @@ const PostCardOne = ({ posts }) => {
                       <CardTitle className="text-truncate d-flex justify-content-between">
                         <span className="text-truncate">{title} </span>
                         <span>
-                          <FontAwesomeIcon icon={faMouse} />
+                          <FontAwesomeIcon icon={faEye} />
                           &nbsp;&nbsp;
                           <span>{views}</span>
                         </span>
                       </CardTitle>
                       <Row>
-                        <Button color="primary" className="p-2 btn-block">
-                          더보기 <Badge color="light">{comments.length}</Badge>
+                        <Button color="dark" className="p-2 btn-block">
+                          자세히 <Badge color="light">{comments.length}</Badge>
                         </Button>
                       </Row>
                     </CardBody>

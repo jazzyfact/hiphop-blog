@@ -1,20 +1,34 @@
 //푸터
 #main-footer {
-  background: #343a40;
+  background: #252525;
   color: #fff;
+}
+
+#navbar{
+background: #252525;
 }
   
 //헤더
 #page-header {
   height: 200px;
-  background: url("../assets/img/music.jpg");
+
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  // background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
   background-position: 54% 95%;
   background-attachment: fixed;
-  color: #fff;
+  color: #fff !important;
   border-bottom: 1px #eee solid;
   padding-top: 60px;
+
+  h1{
+     color: #fff !important;
+  }
 }
 
+#search{
+  width: 50%;
+  margin-left: 18rem;
+}
 
 #main-body {
   min-height: 90vh;
@@ -23,7 +37,7 @@
 //카드
 .card-img-top {
   width: 100%;
-  height: 20rem;
+  height: 30rem;
   object-fit: cover;
 }
 
@@ -57,11 +71,36 @@ textarea {
 
 .my_category {
   &:last-child {
-    margin-bottom: 0.25rem;
+    margin-bottom: 2rem;
   }
+}
+
+.tag {
+  // color: #c41d7f;
+  // background: #fff0f6;
+  // border-color: #ffadd2;
+  color: #531dab;
+  background: #f9f0ff;
+  border-color: #d3adf7;
 }
 
 //댓글
 textarea {
   resize: none;
+}
+
+
+#delete{
+  margin-left: 2rem;
+}
+
+#postTitle{
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#creator{
+  text-align: end;
+  font-size: 1rem;
 }

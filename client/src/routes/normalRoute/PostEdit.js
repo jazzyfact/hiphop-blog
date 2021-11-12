@@ -9,7 +9,7 @@ import {
   Col,
   Progress,
 } from "reactstrap";
-import CKEditor from "@ckeditor/ckeditor5-react";
+import {CKEditor} from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-editor-classic/src/classiceditor";
 import { editorConfiguration } from "../../components/editor/EditorConfig";
 import Myinit from "../../components/editor/UploadAdapter";
@@ -27,7 +27,7 @@ const PostEdit = () => {
     const token = localStorage.getItem("token");
     const id = postDetail._id;
     const body = { title, contents, fileUrl, token, id };
-    console.log(body);
+ 
     dispatch({
       type: POST_EDIT_UPLOADING_REQUEST,
       payload: body,
@@ -51,11 +51,11 @@ const PostEdit = () => {
 
   const getDataFromCKEditor = (event, editor) => {
     const data = editor.getData();
-    console.log(data);
+ 
 
     if (data && data.match("<img src=")) {
       const whereImg_start = data.indexOf("<img src=");
-      console.log(whereImg_start);
+   
       let whereImg_end = "";
       let ext_name_find = "";
       let result_Img_Url = "";
@@ -64,13 +64,11 @@ const PostEdit = () => {
 
       for (let i = 0; i < ext_name.length; i++) {
         if (data.match(ext_name[i])) {
-          console.log(data.indexOf(`${ext_name[i]}`));
+        
           ext_name_find = ext_name[i];
           whereImg_end = data.indexOf(`${ext_name[i]}`);
         }
       }
-      console.log(ext_name_find);
-      console.log(whereImg_end);
 
       if (ext_name_find === "jpeg") {
         result_Img_Url = data.substring(whereImg_start + 10, whereImg_end + 4);
@@ -78,7 +76,7 @@ const PostEdit = () => {
         result_Img_Url = data.substring(whereImg_start + 10, whereImg_end + 3);
       }
 
-      console.log(result_Img_Url, "result_Img_Url");
+   
       setValues({
         ...form,
         fileUrl: result_Img_Url,
@@ -118,11 +116,11 @@ const PostEdit = () => {
               onBlur={getDataFromCKEditor}
             />
             <Button
-              color="success"
+              color="dark"
               block
               className="mt-3 col-md-2 offset-md-10 mb-3"
             >
-              제출하기
+              수정
             </Button>
           </FormGroup>
         </Form>

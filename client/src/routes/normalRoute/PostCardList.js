@@ -2,10 +2,11 @@ import React, { Fragment, useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { POSTS_LOADING_REQUEST } from "../../redux/types";
 import { Helmet } from "react-helmet";
-import { Row, Alert } from "reactstrap";
+import {  Alert } from "reactstrap";
 import { GrowingSpinner } from "../../components/spinner/Spinner";
 import PostCardOne from "../../components/post/PostCardOne";
 import Category from "../../components/post/Category";
+import { Row} from 'antd';
 
 const PostCardList = () => {
   const { posts, categoryFindResult, loading, postCount } = useSelector(
@@ -18,7 +19,7 @@ const PostCardList = () => {
     dispatch({ type: POSTS_LOADING_REQUEST, payload: 0 });
   }, [dispatch]);
 
-  //인피니트 스크롤
+  ////////////////////////////////////////
   const skipNumberRef = useRef(0);
   const postCountRef = useRef(0);
   const endMsg = useRef(false);
@@ -44,7 +45,6 @@ const PostCardList = () => {
             skipNumberRef.current += 6;
           } else {
             endMsg.current = true;
-            console.log(endMsg.current);
           }
         }
       }, options);
@@ -65,19 +65,20 @@ const PostCardList = () => {
     return [lastPostElementRef, visible];
   };
 
-
-
+  ////////////////////////////////////////
   const [lastPostElementRef, visible] = useOnScreen({
     threshold: "0.5",
   });
-  console.log(visible, "visible", skipNumberRef.current, "skipNum");
+
 
   return (
-    <Fragment>
-      <Helmet title="Home" />
-
-      <Row className="border-bottom border-top border-primary py-2 mb-3 ">
+    <>
+      <Helmet title="AlwaysHipHop" />
+      {/* <Row className="border-bottom border-top border-primary py-2 mb-3 ">
         <Category posts={categoryFindResult} />
+      </Row> */}
+      <Row justify="start">
+        <Category posts={categoryFindResult} color="magenta"/>
       </Row>
 
       <Row>{posts ? <PostCardOne posts={posts} /> : GrowingSpinner}</Row>
@@ -87,14 +88,12 @@ const PostCardList = () => {
         ""
       ) : endMsg ? (
         <div>
-          <Alert color="danger" className="text-center font-weight-bolder">
-            더 이상의 포스트는 없습니다
-          </Alert>
+        
         </div>
       ) : (
         ""
       )}
-    </Fragment>
+    </>
   );
 };
 
