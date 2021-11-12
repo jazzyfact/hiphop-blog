@@ -2,7 +2,6 @@ import React, { Fragment, useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { POSTS_LOADING_REQUEST } from "../../redux/types";
 import { Helmet } from "react-helmet";
-import {  Alert } from "reactstrap";
 import { GrowingSpinner } from "../../components/spinner/Spinner";
 import PostCardOne from "../../components/post/PostCardOne";
 import Category from "../../components/post/Category";
