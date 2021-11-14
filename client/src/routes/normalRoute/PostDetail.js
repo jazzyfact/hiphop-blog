@@ -85,7 +85,7 @@ const PostDetail = (req) => {
   const Body = (
     <>
       {userId === creatorId ? EditButton : ""}
-      <Row className="border-bottom border-top border-primary p-3 mb-3 d-flex justify-content-between">
+      <Row className="border-bottom border-top p-3 mb-3 d-flex justify-content-between">
         {(() => {
           if (postDetail && postDetail.creator) {
             return (
