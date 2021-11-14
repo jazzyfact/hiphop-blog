@@ -19,7 +19,7 @@ const CategoryResult = () => {
 
   return (
     <div>
-      <h1>카테고리 결과는 : "{categoryName}" 입니다</h1>
+      <h1>카테고리는 : "{categoryName}" 입니다</h1>
       <Row>
         <PostCardOne posts={categoryFindResult.posts} />
       </Row>
