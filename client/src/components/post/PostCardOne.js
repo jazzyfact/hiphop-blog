@@ -18,12 +18,12 @@ const PostCardOne = ({ posts }) => {
       {Array.isArray(posts)
         ? posts.map(({ _id, title, fileUrl, comments, views }) => {
             return (
-              <div key={_id} className="col-md-4">
+              <div key={_id} className="col-md-4" id="postCard">
                 <Link
                   to={`/post/${_id}`}
                   className="text-dark text-decoration-none"
                 >
-                  <Card className="mb-3">
+                  <Card className="mb-6">
                     <CardImg top alt="카드이미지" src={fileUrl} />
                     <CardBody>
                       <CardTitle className="text-truncate d-flex justify-content-between">

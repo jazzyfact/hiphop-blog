@@ -15,7 +15,7 @@ const Categroy = ({ posts }) => {
               >
                 <span className="ml-1">
                   <Button className="tag" >
-                    {categoryName} <Badge color="light">{posts.length}</Badge>
+                    {categoryName} <Badge id="badge">{posts.length}</Badge>
                   </Button>
                 </span>
               </Link>

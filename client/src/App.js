@@ -8,13 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import "./assets/custom.scss";
 
+
 const App = () => {
   return (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <MyRouter />
-      </ConnectedRouter>
-    </Provider>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MyRouter />
+        </ConnectedRouter>
+      </Provider>
   );
 };
 

@@ -7,6 +7,7 @@ import PostCardOne from "../../components/post/PostCardOne";
 import Category from "../../components/post/Category";
 import { Row} from 'antd';
 
+
 const PostCardList = () => {
   const { posts, categoryFindResult, loading, postCount } = useSelector(
     (state) => state.post
@@ -87,8 +88,8 @@ const PostCardList = () => {
         ""
       ) : endMsg ? (
         <div>
-        
-        </div>
+    
+      </div>
       ) : (
         ""
       )}

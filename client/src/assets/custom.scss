@@ -34,6 +34,10 @@ background: #252525;
   min-height: 90vh;
 }
 
+#postCard{
+  padding: 5px;
+}
+
 //카드
 .card-img-top {
   width: 100%;
@@ -75,11 +79,15 @@ textarea {
   }
 }
 
+#badge{
+  color: #531dab;
+}
+
 .tag {
   // color: #c41d7f;
   // background: #fff0f6;
   // border-color: #ffadd2;
-  color: #531dab;
+  color: #531dab !important;
   background: #f9f0ff;
   border-color: #d3adf7;
 }
@@ -103,4 +111,10 @@ textarea {
 #creator{
   text-align: end;
   font-size: 1rem;
+}
+
+@font-face { font-family: 'NotoSansKR-Medium'; src: url(./fonts/NotoSansKR-Medium.otf) format('truetype'); }
+
+body {
+  font-family: 'NotoSansKR-Medium' !important;
 }
