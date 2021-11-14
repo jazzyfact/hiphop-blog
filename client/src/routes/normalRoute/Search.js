@@ -10,7 +10,7 @@ const Search = () => {
     let { searchTerm } = useParams();
     const { searchResult } = useSelector((state) => state.post);
   
-    console.log(searchResult, "useParams");
+  
   
     useEffect(() => {
       if (searchTerm) {
