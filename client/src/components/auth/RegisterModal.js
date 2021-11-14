@@ -87,7 +87,7 @@ const RegisterModal = () => {
                            
                         <Label for="password">비밀번호</Label>
                             <Input 
-                                type="text"
+                                type="password"
                                 name="password"
                                 id="password"
                                 placeholder="비밀번호를 입력해주세요."
