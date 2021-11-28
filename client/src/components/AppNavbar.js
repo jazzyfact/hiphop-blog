@@ -15,6 +15,7 @@ import { LOGOUT_REQUEST, POSTS_WRITE_REQUEST } from "../redux/types";
 import LoginModal from "../components/auth/LoginModal";
 import RegisterModal from "../components/auth/RegisterModal";
 import SearchInput from "./search/searchInput";
+import { border, borderBottom } from '@mui/system';
 
 const AppNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,9 +51,9 @@ const AppNavbar = () => {
           <Form className="col mt-2">
             <Link
               to="/post"
-              className="btn btn-dark  block text-white px-3"
+              className="btn btn-write block px-3"
               onClick={addPostClick}
-              
+              style={{color : "#000"}}
             >
               글쓰기
             </Link>
@@ -65,7 +66,7 @@ const AppNavbar = () => {
         <Form className="col mt-2 m-2">
           {user && user.name ? (
             <Link to={`/user/${user.name}/profile`}>
-              <Button outline color="light" className="px-3" block>
+              <Button outline color="light" className="px-3" block  style={{color : "#000" }}>
                 <strong>{user ? ` ${user.name}` : ""}</strong>
               </Button>
             </Link>
@@ -79,7 +80,7 @@ const AppNavbar = () => {
       <NavItem>
         <Form className="col">
           <Link onClick={onLogout} to="#" className="">
-            <Button outline color="light" className="mt-2"  block>
+            <Button outline color="light" className="mt-2"  block  style={{color : "#000" }}>
               로그아웃
             </Button>
           </Link>
@@ -101,9 +102,9 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar id="navbar" dark expand="lg" className="sticky-top">
+      <Navbar dark expand="lg" className="sticky-top navbar" >
         <Container>
-          <Link to="/" className="text-white text-decoration-none">
+          <Link to="/" className="logo text-decoration-none " >
            AlwaysHipHop
           </Link>
           <NavbarToggler onClick={handleToggle} />

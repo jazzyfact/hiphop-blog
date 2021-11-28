@@ -1,19 +1,35 @@
-//푸터
-#main-footer {
-  background: #252525;
-  color: #fff;
+@font-face { font-family: 'NotoSansKR-Medium'; src: url(./fonts/NotoSansKR-Medium.otf) format('truetype'); }
+
+body {
+  font-family: 'NotoSansKR-Medium' !important;
 }
 
-#navbar{
-background: #252525;
+
+.logo{
+  color: #252525;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #fbcac9, #8ca6ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-  
+
+.navbar{
+background: #fff;
+box-shadow: 0 15px 15px -4px rgba(0, 0, 0, 0.08);
+}
+
+//글쓰기
+.btn-write{
+  background-color: #ececec;
+  color: #6A6969;
+}
+
+
 //헤더
-#page-header {
+.page-header {
   height: 200px;
-
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-  // background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
   background-position: 54% 95%;
   background-attachment: fixed;
   color: #fff !important;
@@ -22,12 +38,16 @@ background: #252525;
 
   h1{
      color: #fff !important;
+     font-weight: bold;
   }
 }
 
+
+
+
 #search{
   width: 50%;
-  margin-left: 18rem;
+  margin-left: 14rem;
 }
 
 #main-body {
@@ -35,15 +55,44 @@ background: #252525;
 }
 
 #postCard{
-  padding: 5px;
+  padding: 25px 10px 15px 10px;
 }
+
+.card-style{
+  margin: 10px;
+}
+
 
 //카드
 .card-img-top {
   width: 100%;
-  height: 30rem;
+  height: 20rem;
   object-fit: cover;
 }
+
+.btn-color{
+  background-color: #8696D6;
+
+  border : 0;
+
+  &:hover {
+    // background: var(--custom_color);
+    // background: linear-gradient(to right, #D9AFD9, #8ca6ce);
+    background: linear-gradient(to right, #8696D6, #D9AFD9);
+  }
+}
+
+.btn-detail{
+  background: #ececec !important;
+  color: #6A6969 !important;
+  border-color: transparent;
+  font-size: 1rem;
+
+  &:hover{
+    border-color: transparent;
+  }
+}
+
 
 //CKEditor 셋팅
 .ck {
@@ -81,6 +130,7 @@ textarea {
 
 #badge{
   color: #531dab;
+
 }
 
 .tag {
@@ -90,6 +140,10 @@ textarea {
   color: #531dab !important;
   background: #f9f0ff;
   border-color: #d3adf7;
+
+  &:hover {
+    background: linear-gradient(to right, #d3adf7, #D9AFD9);
+  }
 }
 
 //댓글
@@ -99,7 +153,7 @@ textarea {
 
 
 #delete{
-  margin-left: 2rem;
+  margin-left: 10px;
 }
 
 #postTitle{
@@ -113,8 +167,14 @@ textarea {
   font-size: 1rem;
 }
 
-@font-face { font-family: 'NotoSansKR-Medium'; src: url(./fonts/NotoSansKR-Medium.otf) format('truetype'); }
 
-body {
-  font-family: 'NotoSansKR-Medium' !important;
+//푸터
+#main-footer {
+  background: #ececec;
+  color: #6A6969;
+  margin-top: 3rem;
+}
+
+.footer-copyright {
+  margin: 10px;
 }

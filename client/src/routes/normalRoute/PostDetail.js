@@ -66,12 +66,12 @@ const PostDetail = (req) => {
           <div className="col-md3 ">
           <Link
             to={`/post/${req.match.params.id}/edit`}
-            className="btn btn-dark btn-block">
+            className="btn btn-detail btn-block">
             수정
           </Link>
         </div>
         <div className="col-md3">
-          <Button id="delete" className="btn-dark btn-block"  onClick={onDeleteClick}>
+          <Button id="delete" className="btn-detail btn-block"  onClick={onDeleteClick}>
             삭제
           </Button>
         </div>

@@ -10,8 +10,8 @@ const Footer = () => {
   return (
     <Row id="main-footer" className="text-center p-2">
       <Col>
-        <p>
-          Copyright &copy; <span>{thisYear()}</span>
+        <p className="footer-copyright">
+          Copyright &copy; |  Created by Hyemi Design<span>{thisYear()}</span>
         </p>
       </Col>
     </Row>

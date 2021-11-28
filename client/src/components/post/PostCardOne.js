@@ -25,8 +25,8 @@ const PostCardOne = ({ posts }) => {
                 >
                   <Card className="mb-6">
                     <CardImg top alt="카드이미지" src={fileUrl} />
-                    <CardBody>
-                      <CardTitle className="text-truncate d-flex justify-content-between">
+                    <CardBody className="card-style">
+                      <CardTitle className="text-truncate d-flex justify-content-between pb-2">
                         <span className="text-truncate">{title} </span>
                         <span>
                           <FontAwesomeIcon icon={faEye} />
@@ -35,7 +35,7 @@ const PostCardOne = ({ posts }) => {
                         </span>
                       </CardTitle>
                       <Row>
-                        <Button color="dark" className="p-2 btn-block">
+                        <Button className="p-2 btn-color ">
                           자세히 <Badge color="light">{comments.length}</Badge>
                         </Button>
                       </Row>

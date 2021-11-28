@@ -11,7 +11,7 @@ const Categroy = ({ posts }) => {
             <div key={_id} className="mx-1 mt-1 my_category">
               <Link
                 to={`/post/category/${categoryName}`}
-                className="text-dark text-decoration-none"
+                className="text-decoration-none"
               >
                 <span className="ml-1">
                   <Button className="tag" >
