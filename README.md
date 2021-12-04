@@ -20,28 +20,35 @@
 
 **2주**
 
+
 ## ✏️담당업무
 
 
 개인프로젝트로 프론트, 백엔드를 혼자 구현했습니다.
+
 
 ## 💻상세내용
 
 
 ### 스크린샷
 
+
 - 메인페이지
 
-![메인.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97ef5dc2-2435-4c2a-bc02-2084d363acb2/메인.png)
+![메인](https://user-images.githubusercontent.com/51365114/144704181-7922ccc2-15ac-456f-8377-ad49f2f36b7e.PNG)
 
 - 게시글 상세보기
+
+![게시글상세보기](https://user-images.githubusercontent.com/51365114/144704179-a3285d02-5b84-4dd3-be7a-e967a6a6a592.PNG)
 
 
 - 검색
 
-![게시글검색.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e2b58637-819a-4af6-8d11-cfd3b5f77577/게시글검색.png)
+![게시글검색](https://user-images.githubusercontent.com/51365114/144704174-47542fe7-93c5-4026-affd-72647e1ea7b5.PNG)
 
 - 태그 검색
+
+![태그검색](https://user-images.githubusercontent.com/51365114/144704186-768fbb90-e3c0-48b9-b087-35b86d1b820e.PNG)
 
 ## 💻기능
 
