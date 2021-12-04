@@ -1,4 +1,4 @@
-## 👏Always Hiphop(힙합 블로그)
+## 👏Always Hiphop(힙합 블로그/React)
 
 ![메인](https://user-images.githubusercontent.com/51365114/144704181-7922ccc2-15ac-456f-8377-ad49f2f36b7e.PNG)
 
