@@ -5,6 +5,7 @@
 
 리뷰, 앨범 추천, 노래 추천, 추천받은 노래들을 작성할 수 있습니다.
 
+
 ## 📎링크
 
 
@@ -33,9 +34,14 @@
 
 ![메인.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97ef5dc2-2435-4c2a-bc02-2084d363acb2/메인.png)
 
+- 게시글 상세보기
+
+
 - 검색
 
 ![게시글검색.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e2b58637-819a-4af6-8d11-cfd3b5f77577/게시글검색.png)
+
+- 태그 검색
 
 ## 💻기능
 
