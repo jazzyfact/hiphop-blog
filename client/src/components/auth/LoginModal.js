@@ -57,7 +57,7 @@ const LoginModal = () => {
   };
   return (
     <div>
-      <NavLink onClick={handleToggle} href="#">
+      <NavLink onClick={handleToggle} href="#" className="navbar-color">
         로그인
       </NavLink>
       <Modal isOpen={modal} toggle={handleToggle}>

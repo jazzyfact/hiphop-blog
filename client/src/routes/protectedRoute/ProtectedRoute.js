@@ -34,7 +34,6 @@ export const EditProtectedRoute = ({component : Component, ...rest}) => {
 //비밀번호
 export const ProfileProtectedRoute = ({ component: Component, ...rest }) => {
     const { userName } = useSelector((state) => state.auth);
-    console.log(userName);
     return (
       <Route
         {...rest}

@@ -121,17 +121,17 @@ import {
         return {
           ...state,
           isLoading: false,
-          successMsg : action.payload.data.success_msg,
-          errorMsg : "",
-          previousMatchMsg : "",
+          successMsg: action.payload.data.success_msg,
+          errorMsg: "",
+          previousMatchMsg: "",
         };
       case PASSWORD_EDIT_UPLOADING_FAILURE:
         return {
           ...state,
           isLoading: false,
-          successMsg : "",
-          errorMsg :  action.payload.fail_msg,
-          previousMatchMsg :  action.payload.match_msg,
+          successMsg: "",
+          errorMsg: action.payload.data.fail_msg,
+          previousMatchMsg: action.payload.data.match_msg,
         };
          //에러
       case CLEAR_ERROR_REQUEST:

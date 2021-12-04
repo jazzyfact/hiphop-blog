@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
@@ -21,8 +21,7 @@ import {
 
 const Profile = () => {
     const { userId, errorMsg, successMsg, previousMatchMsg } = useSelector(
-        (state) => state.auth
-      );
+        (state) => state.auth);
     const { userName } = useParams();
     const [form, setValues] = useState({
         previousPassword: "",
@@ -38,27 +37,28 @@ const Profile = () => {
     };
     
     const onSubmit = async (e) => {
-        await e.preventDefault();
-        const { previousPassword, password, rePassword } = form;
-        const token = localStorage.getItem("token");
-    
-        const body = {
-          password,
-          token,
-          previousPassword,
-          rePassword,
-          userId,
-          userName,
-        };
-    
-        dispatch({
-          type: CLEAR_ERROR_REQUEST,
-        });
-        dispatch({
-          type: PASSWORD_EDIT_UPLOADING_REQUEST,
-          payload: body,
-        });
+      await e.preventDefault();
+      const { previousPassword, password, rePassword } = form;
+      const token = localStorage.getItem("token");
+  
+      const body = {
+        password,
+        token,
+        previousPassword,
+        rePassword,
+        userId,
+        userName,
       };
+  
+      dispatch({
+        type: CLEAR_ERROR_REQUEST,
+      });
+      dispatch({
+        type: PASSWORD_EDIT_UPLOADING_REQUEST,
+        payload: body,
+      });
+      console.log("확인", body);
+    };
     
       return (
         <>
@@ -79,10 +79,10 @@ const Profile = () => {
                       className="form-control mb-2"
                       onChange={onChange}
                     />
-                    {previousMatchMsg ? (
-                      <Alert color="danger">{previousMatchMsg}</Alert>
+                     {previousMatchMsg ? (
+                    <Alert color="danger">{previousMatchMsg}</Alert>
                     ) : (
-                      ""
+                    ""
                     )}
                   </FormGroup>
                   <FormGroup>

@@ -143,7 +143,7 @@ function* watchRegisterUser() {
 
 
 //비밀번호 변경
-const EditPasswordAPI = (payload) => {
+const editPasswordAPI = (payload) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -157,13 +157,12 @@ const EditPasswordAPI = (payload) => {
   return axios.post(`/api/user/${payload.userName}/profile`, payload, config);
 };
 
-function* EditPassword(action) {
+function* editPassword(action) {
   try {
- 
-    const result = yield call(EditPasswordAPI, action.payload);
+    const result = yield call(editPasswordAPI, action.payload);
     yield put({
       type: PASSWORD_EDIT_UPLOADING_SUCCESS,
-      payload: result.data,
+      payload: result,
     });
   } catch (e) {
     yield put({
@@ -174,7 +173,7 @@ function* EditPassword(action) {
 }
 
 function* watchEditPassword() {
-  yield takeEvery(PASSWORD_EDIT_UPLOADING_REQUEST, EditPassword);
+  yield takeEvery(PASSWORD_EDIT_UPLOADING_REQUEST, editPassword);
 }
 
 //에러

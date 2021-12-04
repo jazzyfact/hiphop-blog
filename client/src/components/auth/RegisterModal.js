@@ -55,11 +55,11 @@ const RegisterModal = () => {
         dispatch({
             type : REGISTER_REQUEST,
             payload : newUser,
-        })
+        });
      }
      return (
          <div>
-             <NavLink onClick={handleToggle} href="#">
+             <NavLink onClick={handleToggle} href="#" className="navbar-color">
                  회원가입
              </NavLink>
              <Modal isOpen={modal} toggle={handleToggle}>

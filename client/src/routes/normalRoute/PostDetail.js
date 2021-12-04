@@ -6,7 +6,7 @@ import {
     POST_DELETE_REQUEST, 
     USER_LOADING_REQUEST, 
 } from '../../redux/types';
-import { Col, Row, Button, Container  } from 'reactstrap';
+import { Row, Button, Container  } from 'reactstrap';
 // import {Col, Row, Button} from 'react-bootstrap'; 
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import { Link } from 'react-router-dom';

@@ -12,7 +12,10 @@ import Search from './normalRoute/Search';
 import PostEdit from './normalRoute/PostEdit';
 import CategoryResult from './normalRoute/CategoryResult';
 import Profile from "./normalRoute/Profile";
-import { EditProtectedRoute,  ProfileProtectedRoute, } from './protectedRoute/ProtectedRoute';
+import {
+  EditProtectedRoute,
+  ProfileProtectedRoute,
+} from "./protectedRoute/ProtectedRoute";
 
 const MyRouter = () => (
     <>
@@ -30,7 +33,7 @@ const MyRouter = () => (
                         path="/user/:userName/profile"
                         exact
                         component={Profile}
-                    />
+                        />
                     <Redirect from="*" to="/"/>
                 </Switch>
             </Container>

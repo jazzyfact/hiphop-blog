@@ -72,9 +72,7 @@ const uploadPostAPI = (payload) =>{
 
 function* uploadPosts(action)  {
     try{
-        console.log(action, "uploadPosts funtion");
         const result = yield call(uploadPostAPI, action.payload);
-        console.log(result, "uploadPostsAPI, action.payload");
         yield put({
             type : POST_UPLOADING_SUCCESS,
             payload : result.data

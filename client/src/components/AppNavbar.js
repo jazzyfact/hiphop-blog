@@ -15,7 +15,7 @@ import { LOGOUT_REQUEST, POSTS_WRITE_REQUEST } from "../redux/types";
 import LoginModal from "../components/auth/LoginModal";
 import RegisterModal from "../components/auth/RegisterModal";
 import SearchInput from "./search/searchInput";
-import { border, borderBottom } from '@mui/system';
+
 
 const AppNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
