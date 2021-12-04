@@ -8,13 +8,11 @@
 ## 📎링크
 
 
-- **Github**
-
-[GitHub - jazzyfact/hiphop-blog](https://github.com/jazzyfact/hiphop-blog)
-
 - **영상**
 
-[[개인프로젝트 / React] 힙합블로그](https://youtu.be/QRObh9wZIEI)
+
+[![Video Label](http://img.youtube.com/vi/QRObh9wZIEI/0.jpg)](https://youtu.be/QRObh9wZIEI)
+
 
 ## ⏲️개발기간
 
